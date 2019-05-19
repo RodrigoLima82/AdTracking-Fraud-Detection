@@ -14,7 +14,7 @@ dados_teste <- df[-splits,]
 nrow(dados_treino)
 nrow(dados_teste)
 
-# Treinando o modelo usando Baive Bayes e fazendo predicoes
+# Treinando o modelo usando Naive Bayes e fazendo predicoes
 ## devido ao problema de overfitting, o resultado esta tendencioso
 ## necessario corrigir o problema de overfitting
 modeloNB <- NaiveBayes(is_attributed ~. , data=dados_treino)
