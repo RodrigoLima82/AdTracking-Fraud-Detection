@@ -98,7 +98,7 @@ dados_teste <- df[-splits,]
 nrow(dados_treino)
 nrow(dados_teste)
 
-# Treinando o modelo usando Baive Bayes e fazendo predicoes
+# Treinando o modelo usando Naive Bayes e fazendo predicoes
 ## devido ao problema de overfitting, o resultado esta tendencioso
 ## necessario corrigir o problema de overfitting
 modeloNB <- naiveBayes(is_attributed ~. , data=dados_treino)
@@ -218,3 +218,15 @@ rpart.plot(modeloTree, fallen.leaves = FALSE, type = 1)
 pred.tree <- predict(modeloTree, type = "class")
 confusionMatrix(pred.tree, dados_treino_new$is_attributed)
 
+# Modelo usando Naive Bayes com os novos dados de treino
+modeloNB_v2 <- naiveBayes(is_attributed ~. , data=dados_treino_new)
+predNB_v2 <- predict(modeloNB_v2, dados_teste)
+confusionMatrix(predNB_v2, dados_teste$is_attributed)
+
+# Modelo usando RandomForest com os novos dados de treino
+modeloRF_v2 <- randomForest(is_attributed ~ ., 
+                         data = dados_treino_new,
+                         ntree = 100, 
+                         nodesize = 5)
+predRF_v2 <- predict(modeloRF_v2, dados_teste)
+confusionMatrix(predRF_v2, dados_teste$is_attributed)
