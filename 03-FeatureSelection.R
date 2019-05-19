@@ -25,7 +25,6 @@ confusionMatrix(predNB$class, dados_teste$is_attributed)
 roc.curve(dados_teste$is_attributed, predNB$class)
 
 # Resolvendo problema de Overfitting usando pacote ROSE
-#over sampling
 dados_treino_new <- ROSE(is_attributed ~ . , data=dados_treino)$data
 table(dados_treino_new$is_attributed)
 prop.table(table(dados_treino_new$is_attributed))
