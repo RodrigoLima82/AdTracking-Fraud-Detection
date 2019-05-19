@@ -176,7 +176,6 @@ View(previsoes)
 # Calculando a Confusion Matrix em R
 # Carregando os Pacotes
 library(ROCR)
-library(caret)
 
 # Gerando as classes de dados
 class1 <- predict(modeloRF, newdata = dados_teste, type = 'prob')
@@ -196,7 +195,6 @@ confusionMatrix(previsoes_v2$observado, previsoes_v2$previsto)
 
 ## Otimizando o Modelo preditivo
 # Carregando os Pacotes
-library(rpart)
 library(rpart.plot)
 
 # Criando uma Cost Function

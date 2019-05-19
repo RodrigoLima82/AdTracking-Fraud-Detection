@@ -1,7 +1,6 @@
 # Otimizando o Modelo preditivo
 
 # Carregando os Pacotes
-library(rpart)
 library(rpart.plot)
 
 # Criando uma Cost Function

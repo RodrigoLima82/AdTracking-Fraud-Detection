@@ -2,7 +2,6 @@
 
 # Carregando os Pacotes
 library(ROCR)
-library(caret)
 
 # Gerando as classes de dados
 class1 <- predict(modeloRF, newdata = dados_teste, type = 'prob')
